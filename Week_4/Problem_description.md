@@ -116,8 +116,7 @@ After a lot of digging, I found out what the parameters for the HTTP requests we
 So I defined a large enough polygon that should encapsulate the Municipality of Copenhagen and, in order to parallelize scrapring, I broke it down into a 200x200 grid. I then made a request for each of the individual polygons in this grid and combined the information into a single file.
 
 Here is the large polygon I used for this process: 
-<p><a target="_blank" rel="noopener noreferrer" href="/shinesunshine/Coursera_Capstone/blob/master/Week_4/data/img/ibm_cph_map.PNG">
-<img src="/shinesunshine/Coursera_Capstone/blob/master/Week_4/data/img/ibm_cph_map.PNG" alt="Polygon roughly enclosing Copenhagen" style="max-width:100%;"></a></p>
+!['Polygon roughly enclosing Copenhagen'](/shinesunshine/Coursera_Capstone/blob/master/Week_4/data/img/ibm_cph_map.PNG)
 
 
 #### Data Format
