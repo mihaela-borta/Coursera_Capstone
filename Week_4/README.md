@@ -4,7 +4,9 @@
 1. [Introduction](#intro)
 2. [Chosen Approach](#approach)
 3. [Data selected](#data)
+
 3.1. [Solar rooftop potential data](#data_solar)
+
 3.2. [Energy Classification data for buildings](#data_enpot)
 
 ## Capstone Project Decription
