@@ -1,10 +1,9 @@
 # Applied Data Science Capstone
 
 ## Table of contents
-* [General info](#general-info)
-* [Technologies](#technologies)
-* [Setup](#setup)
-
+* [1. Introduction](#1. Introduction)
+* [2. Chosen Approach](#2. Chosen Approach)
+* [3. Data selected](#3. Data selected)
 
 
 ## Capstone Project Decription
