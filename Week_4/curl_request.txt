@@ -1,0 +1,29 @@
+curl "http://9kbhkort.kk.dk/wms?sessionid="%"7B1486C708-E13B-4B17-AC4A-D1622DF82196"%"7D&SERVICENAME=solanalyser&LAYERS=theme-disclaimer&TRANSPARENT=TRUE&FORMAT=image"%"2FPNG&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&SRS=EPSG"%"3A25832&BBOX=727719.2,6177425.1201539,728543.2,6177514.7201539&WIDTH=1030&HEIGHT=112" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0" -H "Accept: image/webp,*/*" -H "Accept-Language: en-US,en;q=0.5" --compressed -H "Referer: http://kbhkort.kk.dk/spatialmap?&selectorgroups=themecontainer"%"20bygninger"%"20detaljer&mapext=702689.6"%"206165734.4"%"20747310.4"%"206186265.6&layers=theme-startkort"%"20theme-disclaimer"%"20theme-bymodel_bygning_solgrupper_40&mapheight=807&mapwidth=1748&profile=solanalyser" -H "Connection: keep-alive"
+
+import requests
+
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0',
+    'Accept': 'image/webp,*/*',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Referer': 'http://kbhkort.kk.dk/spatialmap?&selectorgroups=themecontainer%20bygninger%20detaljer&mapext=702689.6%206165734.4%20747310.4%206186265.6&layers=theme-startkort%20theme-disclaimer%20theme-bymodel_bygning_solgrupper_40&mapheight=807&mapwidth=1748&profile=solanalyser',
+    'Connection': 'keep-alive',
+}
+
+params = (
+    ('sessionid', '{1486C708-E13B-4B17-AC4A-D1622DF82196}'),
+    ('SERVICENAME', 'solanalyser'),
+    ('LAYERS', 'theme-disclaimer'),
+    ('TRANSPARENT', 'TRUE'),
+    ('FORMAT', 'image/PNG'),
+    ('SERVICE', 'WMS'),
+    ('VERSION', '1.1.1'),
+    ('REQUEST', 'GetMap'),
+    ('STYLES', ''),
+    ('SRS', 'EPSG:25832'),
+    ('BBOX', '727719.2,6177425.1201539,728543.2,6177514.7201539'),
+    ('WIDTH', '1030'),
+    ('HEIGHT', '112'),
+)
+
+response = requests.get('http://9kbhkort.kk.dk/wms', headers=headers, params=params)
