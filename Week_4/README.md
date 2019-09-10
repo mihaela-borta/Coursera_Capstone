@@ -214,22 +214,28 @@ Before deciding on this approach, I actually did cross check to see if this was 
 #### 4.1. Data preparation: Energy Level Classification
 
 There are three separate notebooks that deal with scraping the energy level classifications and cleaning the scraped results:
-- [1.1.EnergyClasses_Scraping.ipynb](1.1.EnergyClasses_Scraping.ipynb)
-- [1.2.EnergyClasses_Consolidate.ipynb](1.2.EnergyClasses_Consolidate.ipynb)
-- [1.3.EDA_energy_classes.ipynb](1.3.EDA_energy_classes.ipynb)
-
+- [1.1.EnergyClasses_Scraping.ipynb](1.1.EnergyClasses_Scraping.ipynb): scrapes a website for energy classes of addresses found within a geographical polygon. Does so in a parallelized way by breaking the larger polygon in a grid of smaller polygon and then creating a multiprocessing pool in which the spawned processes fire of requests individually until the entire grid is processed. The results are saved to JSON formatted files.
+- [1.2.EnergyClasses_Consolidate.ipynb](1.2.EnergyClasses_Consolidate.ipynb): picks up the JSON formatted files, cleans them up and creates CSV files based on them.
+- [1.3.EDA_energy_classes.ipynb](1.3.EDA_energy_classes.ipynb): does some more cleaning and extracts the geo-location data (representing the coordinates of the individual addresses) in a separate column.
 
 <a name="data_prep_solar"></a>
 #### 4.2. Data preparation: Solar rooftop potential data
+There are two separate notebooks that deal with processing this data :
+- [2.1.EDA_solar.ipynb](2.1.EDA_solar.ipynb): Splits the 7GB JSON formatted file in 400K line files such that we are better able to process them in paralell (also would have been impossible to load that into the memory of my machine using python). Does some cleaning and then saves the results into CSV files. 
+- [2.2.EDA_solar.ipynb](2.2.EDA_solar.ipynb): Consolidates the previously created files.
 
 <a name="data_prep_combine"></a>
 #### 4.3. Data preparation: Combining the two sources
+[3.Combine_energy_class_solar_potential.ipynb](3.Combine_energy_class_solar_potential.ipynb): attempts to match the two datasets together based on the smallest distance between the geographical point representing the coordinates of the address for which we have the energy level classification and the centroid of the polygon for which we have the solar rooftop information. There are several steps involved in this which are oulined in the notebook. 
 
 <a name="clustering"></a>
 ### 5. Clustering the data
+[4.Clustering.ipynb](4.Clustering.ipynb): uses KMeans to find clusters of addresses wchich are similar in terms of the Energy Level Classification information and the solar profile of their respective rooftops. For determining a reasonable number of clusters to form, the elbow method is used. There are several steps involved in this which are oulined in the notebook.
 
 <a name="conclusions"></a>
 ### 6. Conclusions and future work
+In my particular case, the most important conclusion after carrying out the work for this project is that if one wishes to apply their skills in a real-life context that they actually care about, the largest amount of time can be easily spent defining your use-case, finding the data which can help you in your quest and then on top of that apply the '80% of time is spent on pre-processing the data' saying (which unfortunatelly holds truth in this context as well).
 
+Looking into my articular use case, I was not surprised to see that the majority of buildings were in the mid range in terms of energy efficiency and there was a slight 'oh, nice!' moment when it appeared that there was one group of buildings which were in the second-half of the energy-efficiency spectrum and showed prommising solar potential. If one would have a bugdet to use for thermal rehabilitation of buildings, probably focusing on those buildings first would make sense. 
 
-We will use these information to first link back to the information regarding solar potential and then apply a data science approach (most probably a form of clustering) to create the overview that we set up to do.
+Of course this was just a very rough approach to things. There are several things that can be improved: starting from understanding why we have so few addresses in the final dataset (did we miss something while we were scraping for them, or is due to the attempt to match them against the geo-points of the solar info dataset? Or something else?), making a more thorough assesment of the solar potential of a building/address (the dataset we had was composed of polygons that combined described the potential of the entire rooftop of a building, but we just selected the polygon that was closest to our energy class geo-point) to the clustering approach selected (we just used KMeans with the elbow menthod, but perhaps something else would have been more appropriate).
