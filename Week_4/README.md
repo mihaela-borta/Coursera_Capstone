@@ -3,8 +3,9 @@
 ## Table of contents
 1. [Introduction](#intro)
 2. [Chosen Approach](#approach)
-* [3. Data selected](#3. Data selected)
-
+3. [Data selected](#data)
+3.1. [Solar rooftop potential data](#data_solar)
+3.2. [Energy Classification data for buildings](#data_enpot)
 
 ## Capstone Project Decription
 
@@ -24,8 +25,10 @@ I decided to see if I could find some data on solar rooftop energy potential for
 
 One use case that I envisioned would try to assist the municipality with insight on where their budget for energy refurbishment of buildings could best be spent.
 
+<a name="data"></a>
 ### 3. Data selected
 
+<a name="data_solar"></a>
 #### 3.1. Solar rooftop potential data
 
 The Municipality of Copenhagen shares a lot of interesting datasets (covering a wide array of topics) with the public. <br>
@@ -111,6 +114,7 @@ Basically we need to extract the features from the features list, grab the coord
 
 Before deciding on this approach, I actually did cross check to see if this was in line with what I could see in the other source of information (the live map) and indeed, they seem to agree more or less. This way I also found out that the higher the grading on the various "solgruppe" parameter, the higher the actual PV rating is (marks of 4 correspond to red polygons on the map -- and these are rated as "Meget god" meaning very good. The opposite is true for marks in the lower end of the scale.) 
 
+<a name="data_enpot"></a>
 ### 3.2. Energy Classification data for buildings
 
 I managed to found one public company in Denmark called [https://sparenergi.dk/](https://sparenergi.dk/) which tries to guide people make more sustainable choices on the energy sources they use at home.
@@ -124,8 +128,7 @@ After a lot of digging, I found out what the parameters for the HTTP requests we
 So I defined a large enough polygon that should encapsulate the Municipality of Copenhagen and, in order to parallelize scrapring, I broke it down into a 200x200 grid. I then made a request for each of the individual polygons in this grid and combined the information into a single file.
 
 Here is the large polygon I used for this process: 
-![Polygon roughly enclosing Copenhagen](/Week_4/data/img/ibm_cph_map.PNG height="8" width="8")
-
+![Polygon roughly enclosing Copenhagen](/Week_4/data/img/ibm_cph_map.PNG)
 
 
 #### Data Format
