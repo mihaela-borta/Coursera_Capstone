@@ -1,13 +1,14 @@
 # Applied Data Science Capstone
 
 ## Table of contents
-* [1. Introduction](#1. Introduction)
-* [2. Chosen Approach](#2. Chosen Approach)
+1. [Introduction](#intro)
+2. [Chosen Approach](#approach)
 * [3. Data selected](#3. Data selected)
 
 
 ## Capstone Project Decription
 
+<a name="intro"></a>
 ### 1. Introduction
 
 The learning objective for this project was to leverage a public API (Foursquare was suggested) in order to get some data on which to apply a data science approach in order to address a business problem. <br>
@@ -16,6 +17,7 @@ My favourite way of addressing these types of assigments is to try and link them
 
 Since sustainability and renewable enery has been in my personal top 10 for some time now, I have decided to see if I can mold this assigment such that it embraces my personal interests. Also, since I am lucky enough to live in the Danish society which has a remarably high focus on sharing data of public interest, I decided to try and give this assigment an even more personal touch by adding this extra dimension of locality. <br>
 
+<a name="approach"></a>
 ### 2. Chosen Approach
 
 I decided to see if I could find some data on solar rooftop energy potential for the buildings in the city I currently live (Copenhagen) and complement it with information regarding the buildings' energy classification in order to create an overview of the current state of afairs and perhaps dig out some interesting patterns. <br>
