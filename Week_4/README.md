@@ -9,6 +9,10 @@
 4. [Data preparation](#data_prep)<br>
 4.1 [Data preparation: Energy Level Classification](#data_prep_enpot)<br>
 4.2 [Data preparation: Solar rooftop potential data](#data_prep_solar)<br>
+4.3. [Data preparation: Combining the two sources](#data_prep_combine)<br>
+5. [Clustering the data](#clustering)<br>
+6. [Conclusions and future work](#conclusion)<br>
+
 
 ## Capstone Project Decription
 
@@ -206,14 +210,26 @@ Before deciding on this approach, I actually did cross check to see if this was 
 <a name="data_prep"></a>
 ### 4. Data preparation
 
-
 <a name="data_prep_enpot"></a>
 #### 4.1. Data preparation: Energy Level Classification
+
+There are three separate notebooks that deal with scraping the energy level classifications and cleaning the scraped results:
+- [1.1.EnergyClasses_Scraping.ipynb](1.1.EnergyClasses_Scraping.ipynb)
+- [1.2.EnergyClasses_Consolidate.ipynb](1.2.EnergyClasses_Consolidate.ipynb)
+- [1.3.EDA_energy_classes.ipynb](1.3.EDA_energy_classes.ipynb)
 
 
 <a name="data_prep_solar"></a>
 #### 4.2. Data preparation: Solar rooftop potential data
 
+<a name="data_prep_combine"></a>
+#### 4.3. Data preparation: Combining the two sources
+
+<a name="clustering"></a>
+### 5. Clustering the data
+
+<a name="conclusions"></a>
+### 6. Conclusions and future work
 
 
 We will use these information to first link back to the information regarding solar potential and then apply a data science approach (most probably a form of clustering) to create the overview that we set up to do.
